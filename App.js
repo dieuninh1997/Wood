@@ -7,44 +7,52 @@
  * @lint-ignore-every XPLATJSCOPYRIGHT1
  */
 
-import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
+import React, { Component } from 'react';
+import { Text, View, Animated, Easing } from 'react-native';
+import { createBottomTabNavigator, createStackNavigator } from 'react-navigation';
+import Screens from './app/screens/Screens';
+import MainTabbar from './app/screens/MainTabbar';
 
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
-  android:
-    'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
+const App = createStackNavigator(
+  Screens, 
+  { 
+  headerMode: 'screen', 
+  cardStyle: { opacity:1 },
+  transitionConfig: () => ({
+    transitionSpec: {
+      duration:  300,
+      easing: Easing.out(Easing.poly(4)),
+      timing: Animated.timing,
+    },
+    screenInterpolator: sceneProps => {
+      const { layout, position, scene } = sceneProps;
+      const { index } = scene;
+      const height = layout.initHeight;
+      const translateY = position.interpolate({
+        inputRange: [index - 1, index, index + 1],
+        outputRange: [height, 0, 0],
+      });
+      const opacity = position.interpolate({
+        inputRange: [index - 1, index - 0.99, index],
+        outputRange: [0, 1, 1],
+      });
+      return { opacity, transform: [{ translateY }] };
+    },
+  }),
 });
 
-type Props = {};
-export default class App extends Component<Props> {
+const AppWithTabbar = createBottomTabNavigator(
+  {App: App}, {
+  tabBarPosition: 'bottom',
+  tabBarComponent: MainTabbar,
+});
+
+export default class Root extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to React Native!</Text>
-        <Text style={styles.instructions}>To get started, edit App.js</Text>
-        <Text style={styles.instructions}>{instructions}</Text>
+      <View style={{ flex: 1 }}>
+          <AppWithTabbar />
       </View>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
