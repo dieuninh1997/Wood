@@ -1,4 +1,3 @@
-import { StyleSheet } from 'react-native';
 import ScaledSheet from '../../libs/reactSizeMatter/ScaledSheet';
 
 export default ScaledSheet.create({

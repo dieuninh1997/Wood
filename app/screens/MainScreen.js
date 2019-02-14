@@ -1,12 +1,39 @@
 import React from 'react';
-import { createBottomTabNavigator, createAppContainer } from 'react-navigation';
+import { createBottomTabNavigator, createAppContainer, createStackNavigator } from 'react-navigation';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { scale } from '../libs/reactSizeMatter/scalingUtils';
 import HomeScreen from './HomeScreen/HomeScreen';
 import CategoryScreen from './Category/CategoryScreen';
+import ProductsScreen from './ProductsScreen/ProductsScreen';
 
+const HomeStack = createStackNavigator({
+  HomeScreen: {
+    screen: HomeScreen,
+    navigationOptions: {
+      header: null,
+    },
+  },
+  ProductsScreen: {
+    screen: ProductsScreen,
+  },
+}, {
+  initialRouteName: 'HomeScreen',
+  headerMode: 'screen',
+  defaultNavigationOptions: {
+    headerStyle: {
+      backgroundColor: '#f5f5f5',
+      elevation: 0, // remove shadow on Android
+      shadowOpacity: 0, // remove shadow on iOS
+    },
+    headerTintColor: '#4a4a4a',
+    headerTitleStyle: {
+      fontWeight: 'bold',
+      fontSize: scale(20),
+    },
+  },
+});
 const TabNavigator = createBottomTabNavigator({
-  Home: HomeScreen,
+  Home: HomeStack,
   Category: CategoryScreen,
   Cart: CategoryScreen,
   Request: CategoryScreen,

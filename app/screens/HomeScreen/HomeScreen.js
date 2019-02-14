@@ -8,7 +8,8 @@ import SplashScreen from 'react-native-splash-screen';
 import styles from '../../styles/screens/HomeScreen';
 import { scale } from '../../libs/reactSizeMatter/scalingUtils';
 
-export default class HomeScreen extends Component {
+
+class HomeScreen extends Component {
   componentDidMount() {
     setTimeout(() => {
       SplashScreen.hide();
@@ -169,6 +170,7 @@ export default class HomeScreen extends Component {
     )
 
     render() {
+      const { navigate } = this.props.navigation;
       return (
         <ScrollView>
           <View style={styles.container}>
@@ -188,7 +190,7 @@ export default class HomeScreen extends Component {
               {/* live room furniture */}
               <View style={styles.titleContainer}>
                 <Text style={styles.titleLeftText}>Living room furniture</Text>
-                <TouchableOpacity activeOpacity={0.7} onPress={() => {}}>
+                <TouchableOpacity activeOpacity={0.7} onPress={() => navigate('ProductsScreen', { name: 'Living room furniture' })}>
                   <Text style={styles.titleRightText}>More</Text>
                 </TouchableOpacity>
               </View>
@@ -236,3 +238,4 @@ export default class HomeScreen extends Component {
       );
     }
 }
+export default HomeScreen;

@@ -4,7 +4,7 @@ import {
 } from 'react-native';
 
 
-export default class CategoryScreen extends Component {
+class CategoryScreen extends Component {
   render() {
     return (
       <View style={{ flex: 1, backgroundColor: '#ffffff' }}>
@@ -13,3 +13,4 @@ export default class CategoryScreen extends Component {
     );
   }
 }
+export default CategoryScreen;
