@@ -2,6 +2,7 @@ import React from 'react';
 import { createBottomTabNavigator } from 'react-navigation';
 import { Image } from 'react-native';
 import HomeScreen from './HomeScreen/HomeScreen';
+import CategoryScreen from './Category/CategoryScreen';
 
 const MainScreen = createBottomTabNavigator({
   HomeScreen: {
@@ -11,7 +12,7 @@ const MainScreen = createBottomTabNavigator({
     }),
   },
   CategorScreen: {
-    screen: HomeScreen,
+    screen: CategoryScreen,
     navigationOptions: () => ({
       tabBarLabel: 'Categor',
     }),

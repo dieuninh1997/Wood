@@ -1,19 +1,15 @@
 import React, { Component } from 'react';
 import {
-  View, Text, SafeAreaView, TouchableOpacity, StyleSheet, Image,
+  View, Text, SafeAreaView, TouchableOpacity, Image,
 } from 'react-native';
 import _ from 'lodash';
 import ScaledSheet from '../libs/reactSizeMatter/ScaledSheet';
 
 export default class MainTabbar extends Component {
   renderMenu(menuName, index, mainIndex = -1) {
-    const { navigation } = this.props;
-
     let icon = '';
     let icon_active = '';
     let label = '';
-    let routeName = '';
-    const routeParams = {};
 
     switch (menuName) {
     case 'home':
@@ -23,6 +19,10 @@ export default class MainTabbar extends Component {
       routeName = 'HomeScreen';
       break;
     case 'categor':
+      icon = require('../assets/images/ic_home_not_active.png');
+      icon_active = require('../assets/images/ic_home.png');
+      label = 'Category';
+      routeName = 'CategoryScreen';
       break;
     default:
       break;
@@ -58,7 +58,6 @@ export default class MainTabbar extends Component {
       <View style={styles.wrapper}>
         <SafeAreaView>
           <View style={styles.container}>
-            {/* <Image style={ styles.bg}/> */}
             {this.renderMenu('home', 0, mainIndex)}
             {this.renderMenu('categor', 1, mainIndex)}
             {this.renderMenu('car', 2, mainIndex)}
