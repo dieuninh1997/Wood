@@ -1,7 +1,7 @@
+import  ScaledSheet  from '../../libs/reactSizeMatter/ScaledSheet';
 import { StyleSheet } from 'react-native';
 
-
-export default StyleSheet.create({
+export default ScaledSheet.create({
     container: {
         backgroundColor: '#f5f5f5',
         flex: 1,
@@ -9,12 +9,12 @@ export default StyleSheet.create({
 
     headerImage: {
         width: '100%',
-        height: 150,
+        height: '150@s',
     },
 
     menuHeaderContainer: {
-        marginTop: 20,
-        marginBottom: 25,
+        marginTop: '20@s',
+        marginBottom: '25@s',
     },
 
     //menu header
@@ -22,31 +22,31 @@ export default StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        marginRight: 30,
-        paddingLeft: 10,
+        marginRight: '20@s',
+        paddingLeft: '10@s',
     },
 
     menuHeaderItemCircle: {
-        borderRadius: 25,
-        width: 50,
-        height: 50,
+        borderRadius: '25@s',
+        width: '50@s',
+        height: '50@s',
         backgroundColor: '#f5a623',
         alignItems: 'center',
         justifyContent: 'center',
     },
 
     menuHeaderItemIcon: {
-        width: 25,
-        height: 25,
+        width: '25@s',
+        height: '25@s',
     },
 
     menuHeaderItemName: {
         color: '#4a4a4a',
-        fontSize: 14
+        fontSize: '14@s',
     },
 
     content: {
-        paddingHorizontal: 10,
+        paddingHorizontal: '10@s',
     },
 
     titleContainer: {
@@ -57,31 +57,31 @@ export default StyleSheet.create({
     },
 
     titleLeftText: {
-        fontSize: 17,
-        color: '#4a4a4a'
+        fontSize: '17@s',
+        color: '#4a4a4a',
     },
 
     titleRightText: {
-        fontSize: 14,
-        color: '#4a4a4a'
+        fontSize: '14@s',
+        color: '#4a4a4a',
     },
 
     //menu living
     menuLivingContainer: {
-        marginTop: 10,
+        marginTop: '10@s',
     },
 
     menuLivingItemContainer: {
-        marginBottom: 10,
-        height: 220,
+        marginBottom: '10@s',
+        height: '220@s',
         flex: 1,
         backgroundColor: '#ffffff',
-        overflow: 'hidden'
+        overflow: 'hidden',
     },
 
     menuLivingItemThumbnai: {
-        width: 172,
-        height: 120,
+        width: '172@s',
+        height: '120@s',
     },
 
     thumbnai: {
@@ -91,37 +91,35 @@ export default StyleSheet.create({
 
     menuLivingItemInfo: {
         flex: 1,
-        paddingTop: 5,
-        paddingLeft: 10,
+        paddingTop: '5@s',
+        paddingLeft: '10@s',
     },
 
     menuLivingItemName: {
         color: '#4a4a4a',
-        fontSize: 14,
+        fontSize: '14@s',
     },
 
     menuLivingItemPriceSale: {
         color: '#f5a623',
-        fontSize: 16,
+        fontSize: '16@s',
     },
 
     menuLivingItemPrice: {
         color: '#9b9b9b',
-        fontSize: 12,
-        textDecorationLine:'line-through' 
+        fontSize: '12@s',
+        textDecorationLine:'line-through', 
     },
 
     menuLivingItemCompany: {
         color: '#4a4a4a',
-        fontSize: 12,
-        marginTop: 10
+        fontSize: '12@s',
+        marginTop: '10@s',
     },
 
     thumbnaiTop: {
         width: '100%',
-        height: 150,
-        marginBottom: 10,
+        height: '150@s',
+        marginBottom: '10@s',
     },
-
-
 });

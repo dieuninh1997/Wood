@@ -9,7 +9,7 @@
 
 import React, { Component } from 'react';
 import { Text, View, Animated, Easing } from 'react-native';
-import { createBottomTabNavigator, createStackNavigator } from 'react-navigation';
+import { createTabNavigator, createStackNavigator } from 'react-navigation';
 import Screens from './app/screens/Screens';
 import MainTabbar from './app/screens/MainTabbar';
 
@@ -17,7 +17,7 @@ const App = createStackNavigator(
   Screens, 
   { 
   headerMode: 'screen', 
-  cardStyle: { opacity:1 },
+  cardStyle: { opacity: 1 },
   transitionConfig: () => ({
     transitionSpec: {
       duration:  300,
@@ -41,7 +41,7 @@ const App = createStackNavigator(
   }),
 });
 
-const AppWithTabbar = createBottomTabNavigator(
+const AppWithTabbar = createTabNavigator(
   {App: App}, {
   tabBarPosition: 'bottom',
   tabBarComponent: MainTabbar,
