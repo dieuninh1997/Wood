@@ -163,7 +163,7 @@ export default class HomeScreen extends Component {
         paginationStyle={{ bottom: scale(5) }}
         autoplay
       >
-        <Image style={styles.headerImage} source={require('../../assets/images/drawable-hdpi/bitmap.png')} />
+        <Image style={styles.headerImage} source={require('../../assets/images/img_banner.png')} />
         <Image style={styles.headerImage} source={require('../../assets/images/img_diningTop.png')} />
       </Swiper>
     )
@@ -220,7 +220,7 @@ export default class HomeScreen extends Component {
                   autoplay
                 >
                   <Image style={styles.thumbnaiTop} source={require('../../assets/images/img_diningTop.png')} />
-                  <Image style={styles.thumbnaiTop} source={require('../../assets/images/drawable-hdpi/bitmap.png')} />
+                  <Image style={styles.thumbnaiTop} source={require('../../assets/images/img_banner.png')} />
                 </Swiper>
 
                 <FlatList
