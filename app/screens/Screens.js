@@ -1,7 +1,7 @@
-import MainScreen from './MainScreen';
+// import MainScreen from './MainScreen';
 import HomeScreen from './HomeScreen/HomeScreen';
 
 export default {
-  MainScreen: { screen: MainScreen },
+  // MainScreen: { screen: MainScreen },
   HomeScreen: { screen: HomeScreen },
 };

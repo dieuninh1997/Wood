@@ -11,7 +11,7 @@ import React, { Component } from 'react';
 import {
   View, Animated, Easing,
 } from 'react-native';
-import { createTabNavigator, createStackNavigator } from 'react-navigation';
+import { createBottomTabNavigator, createStackNavigator, createAppContainer } from 'react-navigation';
 import Screens from './app/screens/Screens';
 import MainTabbar from './app/screens/MainTabbar';
 
@@ -44,18 +44,19 @@ const App = createStackNavigator(
   },
 );
 
-const AppWithTabbar = createTabNavigator(
+const AppWithTabbar = createBottomTabNavigator(
   { App }, {
     tabBarPosition: 'bottom',
     tabBarComponent: MainTabbar,
   },
 );
 
+const Tabbar = createAppContainer(AppWithTabbar);
 export default class Root extends Component {
   render() {
     return (
       <View style={{ flex: 1 }}>
-        <AppWithTabbar />
+        <Tabbar />
       </View>
     );
   }

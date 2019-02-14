@@ -1,9 +1,9 @@
 import React from 'react';
-import { createTabNavigator } from 'react-navigation';
+import { createBottomTabNavigator } from 'react-navigation';
 import { Image } from 'react-native';
 import HomeScreen from './HomeScreen/HomeScreen';
 
-const MainScreen = createTabNavigator({
+const MainScreen = createBottomTabNavigator({
   HomeScreen: {
     screen: HomeScreen,
     navigationOptions: () => ({
