@@ -3,11 +3,18 @@ import {
   Text, View, Image, FlatList, ScrollView, TouchableOpacity,
 } from 'react-native';
 import Swiper from 'react-native-swiper';
+import SplashScreen from 'react-native-splash-screen';
 
 import styles from '../../styles/screens/HomeScreen';
 import { scale } from '../../libs/reactSizeMatter/scalingUtils';
 
 export default class HomeScreen extends Component {
+  componentDidMount() {
+    setTimeout(() => {
+      SplashScreen.hide();
+    }, 2000);
+  }
+
     menuHeader = [
       {
         image: require('../../assets/images/ic_percent.png'),
@@ -148,14 +155,24 @@ export default class HomeScreen extends Component {
 
     _keyExtractor = (item, index) => `${item} ${index}`;
 
+    _renderSwiperHeader = () => (
+      <Swiper
+        style={styles.swiperContainer}
+        activeDotColor="#f5a623"
+        dotColor="#ffffff"
+        paginationStyle={{ bottom: scale(5) }}
+        autoplay
+      >
+        <Image style={styles.headerImage} source={require('../../assets/images/drawable-hdpi/bitmap.png')} />
+        <Image style={styles.headerImage} source={require('../../assets/images/img_diningTop.png')} />
+      </Swiper>
+    )
+
     render() {
       return (
         <ScrollView>
           <View style={styles.container}>
-            <Swiper style={styles.swiperContainer} activeDotColor="#f5a623" dotColor="#ffffff" paginationStyle={{ bottom: scale(5) }}>
-              <Image style={styles.headerImage} source={require('../../assets/images/img_banner.png')} />
-              <Image style={styles.headerImage} source={require('../../assets/images/img_diningTop.png')} />
-            </Swiper>
+            {this._renderSwiperHeader()}
 
             {/* menu header */}
             <View style={styles.menuHeaderContainer}>
@@ -200,9 +217,10 @@ export default class HomeScreen extends Component {
                   style={[styles.swiperContainer, { marginBottom: scale(10) }]}
                   activeDotColor="#f5a623"
                   dotColor="#ffffff"
+                  autoplay
                 >
                   <Image style={styles.thumbnaiTop} source={require('../../assets/images/img_diningTop.png')} />
-                  <Image style={styles.thumbnaiTop} source={require('../../assets/images/img_banner.png')} />
+                  <Image style={styles.thumbnaiTop} source={require('../../assets/images/drawable-hdpi/bitmap.png')} />
                 </Swiper>
 
                 <FlatList

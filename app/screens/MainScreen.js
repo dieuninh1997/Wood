@@ -36,7 +36,6 @@ const TabNavigator = createBottomTabNavigator({
         break;
       }
 
-      // You can return any component that you like here!
       return <Ionicons name={iconName} size={scale(25)} color={tintColor} />;
     },
   }),
