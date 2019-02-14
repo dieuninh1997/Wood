@@ -153,8 +153,8 @@ export default class HomeScreen extends Component {
         <ScrollView>
           <View style={styles.container}>
             <Swiper style={styles.swiperContainer} activeDotColor="#f5a623" dotColor="#ffffff" paginationStyle={{ bottom: scale(5) }}>
-              <Image style={styles.headerImage} source={require('../../assets/images/drawable-hdpi/bitmap.png')} />
-              <Image style={styles.headerImage} source={require('../../assets/images/drawable-hdpi/bitmap.png')} />
+              <Image style={styles.headerImage} source={require('../../assets/images/img_banner.png')} />
+              <Image style={styles.headerImage} source={require('../../assets/images/img_diningTop.png')} />
             </Swiper>
 
             {/* menu header */}
@@ -202,7 +202,7 @@ export default class HomeScreen extends Component {
                   dotColor="#ffffff"
                 >
                   <Image style={styles.thumbnaiTop} source={require('../../assets/images/img_diningTop.png')} />
-                  <Image style={styles.thumbnaiTop} source={require('../../assets/images/img_diningTop.png')} />
+                  <Image style={styles.thumbnaiTop} source={require('../../assets/images/img_banner.png')} />
                 </Swiper>
 
                 <FlatList
