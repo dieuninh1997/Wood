@@ -7,7 +7,7 @@ import {
 export default class CategoryScreen extends Component {
   render() {
     return (
-      <View>
+      <View style={{ flex: 1, backgroundColor: '#ffffff' }}>
         <Text>Category</Text>
       </View>
     );

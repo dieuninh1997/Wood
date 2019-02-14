@@ -9,7 +9,7 @@ export default ScaledSheet.create({
 
   headerImage: {
     width: '100%',
-    height: '150@s',
+    height: '100%',
   },
 
   menuHeaderContainer: {
@@ -121,6 +121,11 @@ export default ScaledSheet.create({
   thumbnaiTop: {
     width: '100%',
     height: '150@s',
-    marginBottom: '10@s',
   },
+
+  swiperContainer: {
+    width: '100%',
+    height: '150@s',
+  },
+
 });

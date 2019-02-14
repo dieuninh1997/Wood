@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 import {
   Text, View, Image, FlatList, ScrollView, TouchableOpacity,
 } from 'react-native';
+import Swiper from 'react-native-swiper';
 
 import styles from '../../styles/screens/HomeScreen';
+import { scale } from '../../libs/reactSizeMatter/scalingUtils';
 
 export default class HomeScreen extends Component {
     menuHeader = [
@@ -74,13 +76,6 @@ export default class HomeScreen extends Component {
     ];
 
     menuDining = [
-      {
-        thumbnai: require('../../assets/images/img_diningTop.png'),
-        name: '',
-        price_sale: '',
-        price: '',
-        company: '',
-      },
       {
         thumbnai: require('../../assets/images/img_dining1.png'),
         name: 'Furniture name 1',
@@ -154,11 +149,14 @@ export default class HomeScreen extends Component {
     _keyExtractor = (item, index) => `${item} ${index}`;
 
     render() {
-      const topMenuDining = this.menuDining.shift();
       return (
         <ScrollView>
           <View style={styles.container}>
-            <Image style={styles.headerImage} source={require('../../assets/images/drawable-hdpi/bitmap.png')} />
+            <Swiper style={styles.swiperContainer} activeDotColor="#f5a623" dotColor="#ffffff" paginationStyle={{ bottom: scale(5) }}>
+              <Image style={styles.headerImage} source={require('../../assets/images/drawable-hdpi/bitmap.png')} />
+              <Image style={styles.headerImage} source={require('../../assets/images/drawable-hdpi/bitmap.png')} />
+            </Swiper>
+
             {/* menu header */}
             <View style={styles.menuHeaderContainer}>
               <FlatList
@@ -197,7 +195,16 @@ export default class HomeScreen extends Component {
               </View>
               {/* menu dining */}
               <View style={styles.menuLivingContainer}>
-                <Image style={styles.thumbnaiTop} source={topMenuDining.thumbnai} />
+                <Swiper
+                  paginationStyle={{ bottom: scale(15) }}
+                  style={[styles.swiperContainer, { marginBottom: scale(10) }]}
+                  activeDotColor="#f5a623"
+                  dotColor="#ffffff"
+                >
+                  <Image style={styles.thumbnaiTop} source={require('../../assets/images/img_diningTop.png')} />
+                  <Image style={styles.thumbnaiTop} source={require('../../assets/images/img_diningTop.png')} />
+                </Swiper>
+
                 <FlatList
                   numColumns={2}
                   data={this.menuDining}
